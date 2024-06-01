@@ -3,9 +3,9 @@ const options = ["rock", "paper", "scissors"]
 let humanScore = 0, computerScore = 0;
 
 function getComputerChoice() {
-    return (
-        options[Number(String(Math.random()).at(-1))%3]
-    )
+    let cmputerChoice = Number(String(Math.random()).at(-1))%3
+    console.log(`%c computer : ${options[cmputerChoice]}`, "background-color:black");
+    return options[cmputerChoice];
 }
 
 function getHumanChoice() {
@@ -13,11 +13,12 @@ function getHumanChoice() {
     0. Rock
     1. Paper
     2. Scissors`);
-    console.log(options[humanChoice]);
+    console.log(`%c human : ${options[humanChoice]}`, "background-color:black");
+    return options[humanChoice];
 }
 
 // hC - human choice, cC - computer choice
-function playGround(hC, cC) {
+function playRound(hC, cC) {
     if (hC === cC) {
         console.log("its a tie")
     } else if (hC === "rock" && cC === "paper") {
@@ -26,7 +27,7 @@ function playGround(hC, cC) {
     } else if (hC === "paper" && cC == "rock") {
         console.log("computer wins");
         computerScore++;
-    } else if (hC === "paper" && cC === "scissors") P{
+    } else if (hC === "paper" && cC === "scissors") {
         console.log("computer wins");
         computerScore++;
     } else if (hC === "scissors" && cC === "paper") {
@@ -39,7 +40,28 @@ function playGround(hC, cC) {
         console.log("computer wins");
         computerScore++;
     } else {
-        console.log(hC, cC);
+        // console.warn(hC, cC);
     }
 }
 
+
+
+function playGame() {
+
+    for (let i = 0; i < 6; i++) {
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+    
+        playRound(humanSelection, computerSelection);
+    }
+    
+    if (humanScore === computerScore) {
+        console.log("%c its a tie!!", "background-color:yellow, color:black")
+    } else if (humanScore > computerScore) {
+        console.log("%c human won!!", "background-color:green")
+    } else {
+        console.log("%c computer won!!", "background-color:red")
+    }
+}   
+
+playGame();
