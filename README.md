@@ -1,5 +1,5 @@
 # rock-paper-scissors
 
-played using inspect console menu
+### Basic MVP
+![](assets/screencap.png)
 
-![](assets/image.png)
