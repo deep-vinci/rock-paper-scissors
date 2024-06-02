@@ -10,11 +10,14 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     let humanChoice = prompt(`choose your options
-    0. Rock
-    1. Paper
-    2. Scissors`);
-    console.log(`%c human : ${options[humanChoice]}`, "background-color:black");
-    return options[humanChoice];
+    0. Rock [0]
+    1. Paper [1]
+    2. Scissors [2]
+    
+    3. restart game [r]
+    4. end game [q]`);
+
+    return humanChoice;
 }
 
 let combinations = {
@@ -33,8 +36,6 @@ function compareArrays(choices, combinations) {
 // the compareArrays function compares the two array `choices` and combination.`respective_combo` 
 
 function playRound([...choices]) {
-    console.log(choices);
-    
     if (choices[0] === choices[1]) {
         console.log("It's a tie")
     }
@@ -69,19 +70,27 @@ function playRound([...choices]) {
 
 function playGame() {
     
-    for (let i = 0; i < 6; i++) {
+    while (true) {
         let humanSelection = getHumanChoice();
-        let computerSelection = getComputerChoice();
-    
-        playRound([humanSelection, computerSelection]);
-    }
-    
-    if (humanScore === computerScore) {
-        console.log("%c its a tie!!", "background-color:yellow, color:black")
-    } else if (humanScore > computerScore) {
-        console.log("%c human won!!", "background-color:green")
-    } else {
-        console.log("%c computer won!!", "background-color:red")
+        if (humanSelection == "q") {
+            if (humanScore === computerScore) {
+                console.log("%c its a tie!!", "background-color:yellow, color:black")
+            } else if (humanScore > computerScore) {
+                console.log("%c human won!!", "background-color:green")
+            } else {
+                console.log("%c computer won!!", "background-color:red")
+            }        
+            console.log(`human score: ${humanScore}, compuer score: ${computerScore}`)
+            break;
+        } else if (humanSelection == "r") {
+            humanScore = 0; computerScore = 0;
+            playGame();
+            break;
+        } else {
+            let computerSelection = getComputerChoice();
+            console.log(`%c human : ${options[humanSelection]}`, "background-color:black");
+            playRound([options[humanSelection], computerSelection]);    
+        }
     }
 }   
 
