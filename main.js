@@ -3,7 +3,7 @@ const options = ["rock", "paper", "scissors"]
 let humanScore = 0, computerScore = 0;
 
 function getComputerChoice() {
-    let cmputerChoice = Number(String(Math.random()).at(-1))%3
+    let cmputerChoice = Number(String(Math.random()).at(5))%3
     console.log(`%c computer : ${options[cmputerChoice]}`, "background-color:black");
     return options[cmputerChoice];
 }
@@ -94,4 +94,77 @@ function playGame() {
     }
 }   
 
-playGame();
+// playGame();
+
+const keyPressOptions = {
+    r: "rock",
+    p: "paper",
+    s: "scissors"
+};
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    // const loader = document.getElementById('loader');
+    // const dots = ['.', '..', '...'];
+    // let currentIndex = 0;
+
+    // setInterval(() => {
+    //     loader.textContent = dots[currentIndex];
+    //     currentIndex = (currentIndex + 1) % dots.length;
+    // }, 500);
+
+    document.addEventListener('keydown', event => {
+        if (keyPressOptions.hasOwnProperty(event.key)) {
+            let computerSelection = getComputerChoice();
+            // alert(`
+            // ${computerSelection} - computer
+            // ${keyPressOptions[event.key]} - human
+            // `)
+            document.querySelector(".computerchoice").textContent = computerSelection;
+            document.querySelector(".userchoice").textContent = keyPressOptions[event.key];
+            
+            playRound([keyPressOptions[event.key], computerSelection]);
+
+            // update score at the left-bottom
+            document.querySelector(".humanscore").textContent = humanScore;
+            document.querySelector(".computerscore").textContent = computerScore;
+
+            // update scorepage
+            let scorePage = document.querySelector(".scorepage");
+            
+            let eachScorePage = document.createElement("div");
+            let playerChoices = document.createElement("div");
+            let result = document.createElement("div");
+
+            eachScorePage.classList.add("eachscore");
+            playerChoices.classList.add("playerchoices");
+            result.classList.add("results");
+
+            playerChoices.innerHTML = `Human: ${keyPressOptions[event.key]} 
+            <br>Computer: ${computerSelection}`;
+            // result.textContent = `player won`;
+
+            scorePage.appendChild(eachScorePage);
+            eachScorePage.appendChild(playerChoices);
+            eachScorePage.appendChild(result);
+            // alert(`${humanScore}, ${computerScore}`)
+        }
+    });
+
+    let restartButton = document.querySelector(".restart");
+
+    restartButton.addEventListener("click", () => {
+        humanScore = 0; computerScore = 0;
+    
+        document.querySelector(".humanscore").textContent = humanScore;
+        document.querySelector(".computerscore").textContent = computerScore;
+        let scorePage = document.querySelector(".scorepage");
+        let eachScorePage = document.querySelectorAll(".eachscore");
+
+        eachScorePage.forEach((i, e) => {
+            scorePage.removeChild(i)
+        })
+        
+
+    })
+
+});

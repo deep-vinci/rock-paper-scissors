@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/style.css">
+    <script src="/main.js" defer></script>
     <title>Rock Paper Scissors Game</title>
 </head>
 <body>
-    <script src="/main.js"></script>
+    <div class="container">
+        <div class="sidebar">
+            <div class="scorepage">
+                <button class="restart">restart</button>
+
+            </div>
+            <div class="scoreboard">
+                <div>human: <span class="humanscore">0</span> </div>
+                <div>Computer: <span class="computerscore">0</span></div>
+            </div>
+        </div>
+        <div class="gamepage">
+            <div class="player">
+                <div><img width="200" height="200" src="https://img.icons8.com/sf-black-filled/256/bot.png" alt="bot"/></div>
+                <div class="computerchoice">waiting ...</div>
+            </div>
+            <div class="player">
+                <div><img width="200" height="200" src="https://img.icons8.com/stamp/256/user.png" alt="user"/></div>
+                <div class="userchoice">press p, q, r</div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

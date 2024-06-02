@@ -2,3 +2,77 @@
     margin: 0;
     padding: 0;
 }
+
+.container {
+    display: flex;
+    flex-direction: row;
+}
+
+div, button {
+    /* outline: 1px solid black; */
+    border-radius: 8px;
+}
+
+.sidebar {
+    flex: 1;
+    height: 100vh;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    background-color: rgb(238, 238, 238);
+}
+
+.gamepage {
+    flex: 70%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20vh;
+}
+
+.player {
+    /* height: 30vh;
+    width: 30vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.scorepage {
+    margin-top: 0;
+    margin-bottom: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    /* justify-content: end; */
+    align-items: flex-start;
+    /* gap: 8px; */
+}
+
+.scorepage button {
+    padding: 10px;
+    margin: 8px;
+    border: none;
+    background-color: rgb(218, 218, 218);
+}
+.scoreboard {
+    background-color: rgb(218, 218, 218);
+    text-align: left;
+    padding: 10px 15px;
+    margin: 8px;
+}
+
+.eachscore {
+    background-color: rgb(189, 189, 189);
+    text-align: left;
+    padding: 10px 15px;
+    margin: 8px 8px 0px 8px;
+}
+
+.results {
+    min-width: 250px;
+}
