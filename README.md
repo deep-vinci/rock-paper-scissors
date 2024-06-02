@@ -1,5 +1,5 @@
 # rock-paper-scissors
 
 ### Basic MVP
-![](assets/screencap.png)
+![](assets/page.png)
 
