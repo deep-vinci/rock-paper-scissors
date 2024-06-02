@@ -17,42 +17,63 @@ function getHumanChoice() {
     return options[humanChoice];
 }
 
-// hC - human choice, cC - computer choice
-function playRound(hC, cC) {
-    if (hC === cC) {
-        console.log("its a tie")
-    } else if (hC === "rock" && cC === "paper") {
+let combinations = {
+    rock_wins : ['rock', 'scissors'],
+    scissors_wins : ['scissors', 'paper'],
+    paper_wins : ['paper', 'rock']
+}
+
+function compareArrays(choices, combinations) {
+    return JSON.stringify(choices) === JSON.stringify(combinations)
+}
+
+// how it works is the choices array is [humanChoice, computerChoice]
+// and combinations is an object of all the possible one sided combo which can be later reversed 
+// fullfiling the 6 out of 9 possible combinations and rest 3 are just ties [rock, rock] [paper, paper] [scissors, scissors]
+// the compareArrays function compares the two array `choices` and combination.`respective_combo` 
+
+function playRound([...choices]) {
+    console.log(choices);
+    
+    if (choices[0] === choices[1]) {
+        console.log("It's a tie")
+    }
+    else if (compareArrays(choices, combinations.rock_wins)) {
         console.log("user wins")
         humanScore++;
-    } else if (hC === "paper" && cC == "rock") {
-        console.log("computer wins");
+    } 
+    else if (compareArrays(choices, combinations.rock_wins.reverse())) {
+        console.log("computer wins")
         computerScore++;
-    } else if (hC === "paper" && cC === "scissors") {
-        console.log("computer wins");
+    }
+    else if (compareArrays(choices, combinations.scissors_wins)) {
+        console.log("user wins")
+        humanScore++;
+    } 
+    else if (compareArrays(choices, combinations.scissors_wins.reverse())) {
+        console.log("computer wins")
         computerScore++;
-    } else if (hC === "scissors" && cC === "paper") {
+    }
+    else if (compareArrays(choices, combinations.paper_wins)) {
         console.log("user wins")
         humanScore++;
-    } else if (hC=== "rock" && cC === "scissors") {
-        console.log("user wins")
-        humanScore++;
-    } else if (hC === "scissors" && cC === "rock") {
-        console.log("computer wins");
+    }
+    else if (compareArrays(choices, combinations.paper_wins.reverse())) {
+        console.log("computer wins")
         computerScore++;
     } else {
-        // console.warn(hC, cC);
+        console.log('...')
     }
 }
 
 
-
 function playGame() {
-
+    
     for (let i = 0; i < 6; i++) {
         let humanSelection = getHumanChoice();
         let computerSelection = getComputerChoice();
     
-        playRound(humanSelection, computerSelection);
+        playRound([humanSelection, computerSelection]);
     }
     
     if (humanScore === computerScore) {
