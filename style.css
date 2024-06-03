@@ -76,3 +76,7 @@ div, button {
 .results {
     min-width: 250px;
 }
+
+.playerinfo {
+    margin-top: 20px;
+}
