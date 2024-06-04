@@ -14,8 +14,8 @@ let combinations = {
     paper_wins : ['paper', 'rock']
 }
 
-function compareArrays(choices, combinations) {
-    return JSON.stringify(choices) === JSON.stringify(combinations)
+function compareArrays(choices, combo) {
+    return JSON.stringify(choices) === JSON.stringify(combo)
 }
 
 // how it works is the choices array is [humanChoice, computerChoice]
@@ -29,26 +29,37 @@ function playRound([...choices]) {
     }
     else if (compareArrays(choices, combinations.rock_wins)) {
         console.log("user wins")
+        console.log("combinations.rock_wins")
         humanScore++;
     } 
-    else if (compareArrays(choices, combinations.rock_wins.reverse())) {
+    else if (compareArrays(choices, combinations.rock_wins.slice().reverse())) {
         console.log("computer wins")
+        console.log("combinations.rock_wins.reverse")
+
         computerScore++;
     }
     else if (compareArrays(choices, combinations.scissors_wins)) {
         console.log("user wins")
+        console.log("combinations.scissors_wins")
+
         humanScore++;
     } 
-    else if (compareArrays(choices, combinations.scissors_wins.reverse())) {
+    else if (compareArrays(choices, combinations.scissors_wins.slice().reverse())) {
         console.log("computer wins")
+        console.log("combinations.scissors_wins.reverse")
+
         computerScore++;
     }
     else if (compareArrays(choices, combinations.paper_wins)) {
         console.log("user wins")
+        console.log("combinations.paper_wins")
+
         humanScore++;
     }
-    else if (compareArrays(choices, combinations.paper_wins.reverse())) {
+    else if (compareArrays(choices, combinations.paper_wins.slice().reverse())) {
         console.log("computer wins")
+        console.log("combinations.paper_wins.reverse")
+
         computerScore++;
     } else {
         console.log('...')
@@ -65,11 +76,13 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.addEventListener('keydown', event => {
         if (keyPressOptions.hasOwnProperty(event.key)) {
             let computerSelection = getComputerChoice();
+            // let computerSelection2 = getComputerChoice();
 
             document.querySelector(".computerchoice").textContent = computerSelection;
             document.querySelector(".userchoice").textContent = keyPressOptions[event.key];
             
             playRound([keyPressOptions[event.key], computerSelection]);
+            // playRound([computerSelection2, computerSelection]);
 
             // update score at the left-bottom
             document.querySelector(".humanscore").textContent = humanScore;
