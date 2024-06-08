@@ -1,87 +1,187 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  /* font-weight: <weight>;  */
-  font-style: normal;
-
+    box-sizing: border-box;
+}
+input, button, textarea, select {
+    font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+body {
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
-.container {
+@font-face {
+    font-family: pricedown;
+    src: url("assets/pricedown.otf") format("opentype");
+}
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.page {
+    height: 100%;
+    width: 100%;
+    background-color: #201c32;
+}
+
+.nav {
+    width: 900px;
+    margin: 0 auto;
     display: flex;
-    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 1rem 0;
+    /* border: 1px solid red */
 }
 
-div, button {
-    /* outline: 1px solid black; */
-    border-radius: 8px;
+.nav > .rps-logo {
+    font-family: pricedown;
+    font-size: 2.5rem;
+    margin-right: auto;
+    letter-spacing: 8px;
 }
 
-.sidebar {
-    flex: 1;
-    height: 100vh;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    background-color: rgb(238, 238, 238);
+.rps-logo span:nth-child(1) {
+    color: #a17cb2;
+}
+.rps-logo span:nth-child(2) {
+    color: #dc6759;
+}
+.rps-logo span:nth-child(3) {
+    color: #2e72a3;
 }
 
-.gamepage {
-    flex: 70%;
-    height: 100vh;
+.mode-div {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 20vh;
+    /* background-color: black; */
+    /* border: 2px solid white; */
+    /* padding: 10px 15px; */
 }
 
-.player {
-    /* height: 30vh;
-    width: 30vh; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.scorepage {
-    margin-top: 0;
-    margin-bottom: auto;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-    /* justify-content: end; */
-    align-items: flex-start;
-    /* gap: 8px; */
-}
-
-.scorepage button {
+.mode-div button {
     padding: 10px;
+    font-weight: bold;
+    color: rgb(201, 201, 201);
+    background-color: #322b56;
+    border: 2px solid #433971;
+    
+}
+
+.mode-div button:first-child {
+    border-radius: 10px 0 0 10px;
+
+}
+
+.mode-div button:last-child {
+    border-radius: 0 10px 10px 0px;
+
+}
+
+img {
+    width: 300px;
+    height: 300px;
+    /* border: 2px dashed red; */
+}
+
+.sprite-reverse {
+    transform: rotate(180deg); 
+}
+
+.choices-sprites {
+    width: 40px;
+    height: 40px;
+}
+
+
+.choices-clickables {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
     margin: 8px;
-    border: none;
-    background-color: rgb(218, 218, 218);
-}
-.scoreboard {
-    background-color: rgb(218, 218, 218);
-    text-align: left;
-    padding: 10px 15px;
-    margin: 8px;
+    gap: 8px;
 }
 
-.eachscore {
-    background-color: rgb(189, 189, 189);
-    text-align: left;
-    padding: 10px 15px;
-    margin: 8px 8px 0px 8px;
+
+.coming-soon {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin-left: -100px; 
+    margin-bottom: 70px;  
+    transform: rotate(270deg);
+    color: white;
 }
 
-.results {
-    min-width: 250px;
+.choices-clickables > button {
+    /* margin: 10px; */
+    border: 2px solid #433971;
+    background-color: #322b56;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px 0px #191529;
+    padding: 10px;
+    transition: transform 0.5s ease; 
 }
 
-.playerinfo {
-    margin-top: 20px;
+.choices-clickables > button:active {
+    background-color: #433971;
+    transform: scale(0.95);
+}
+.choices-clickables-user-0 {
+    margin: -30px;
+    left: 0;
+    bottom: 0;
+}
+.choices-clickables-user-1 {
+    margin: -30px;
+    right: 0;
+    top: 0;
+}
+
+
+.game {
+    /* border: 1px solid red; */
+    width: 900px;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.status {
+    /* height: 150px; */
+    position: absolute;
+    /* border: 2px solid red; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+}
+
+.status-message {
+    font-family: pricedown;
+    /* border: 1px solid red; */
+    /* text-align: center; */
+    font-size: 5rem;
+    color: #eac46c;
+}
+
+.game-board {
+    display: flex;
+    width: 100%;
+    height: 450px;
+    gap: 20px;
+    /* border: 2px solid blue; */
+    /* box-shadow: 0 25px 20px 0px #191529; */
+    border: 2px solid #433971;
+    background-color: #322b56;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
 }
