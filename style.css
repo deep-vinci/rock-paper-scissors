@@ -34,7 +34,15 @@ html, body {
 .page {
     height: 100%;
     width: 100%;
-    background-color: #201c32;
+    /* background-image: linear-gradient(
+        0deg,
+        hsl(251deg 28% 15%) 0%,
+        hsl(251deg 38% 17%) 33%,
+        hsl(251deg 46% 18%) 67%,
+        hsl(252deg 54% 19%) 100%
+      ); */
+      
+          background-color: #201c32;
 }
 
 .nav {
@@ -335,7 +343,8 @@ button {
 .round-options button {
     padding: 20px;
     width: 100px;
-    border: white 2px solid;
+    border: white 1px solid;
+    border-radius: 10px;
     background-color: black;
     height: 100px;
     color: white;
