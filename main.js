@@ -10,7 +10,7 @@ let buttons = document.querySelectorAll(".choice-btn");
 let user0 = document.querySelector(`.player-user-0`)
 let user1 = document.querySelector(`.player-user-1`)
 
-let round = 6;
+let round = 5; 
 let currentRound = 0;
 // let winnersArray = [];
 
