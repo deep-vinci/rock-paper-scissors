@@ -300,3 +300,51 @@ button {
 }
 
 
+.start-page {
+    font-family: pricedown;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 10000;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: c; */
+    align-items: center;
+}
+
+.start-page h1{ 
+    margin-top: 40px;
+    /* border: 2px solid red; */
+    text-align: center;
+}
+
+.start-page .round-options {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    gap: 50px;
+}
+
+.start-page h2 {
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin-top: 200px;
+}
+.round-options button {
+    padding: 20px;
+    width: 100px;
+    border: white 2px solid;
+    background-color: black;
+    height: 100px;
+    color: white;
+    font-size: 2rem;
+}
+
+.start-page h4 {
+    /* border: 2px solid red; */
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin-top: auto;
+    margin-bottom: 40px;
+}

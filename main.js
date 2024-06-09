@@ -4,6 +4,14 @@ let paperButton = document.querySelector(".paper");
 let scissorsButton = document.querySelector(".scissors");
 let replayButton = document.querySelector(".replay");
 let gameBoard = document.querySelector(".game-board");
+let roundCount = document.querySelector(".round-count");
+
+let roundOptions = document.querySelectorAll(".start-page > .round-options button");
+let startPage = document.querySelector(".start-page");
+let two = document.querySelector(".two");
+let five = document.querySelector(".five");
+let ten = document.querySelector(".ten");
+
 var win = new Audio('assets/win.wav');
 var lose = new Audio('assets/lose.wav');
 var step = new Audio('assets/step.wav');
@@ -20,11 +28,21 @@ let buttons = document.querySelectorAll(".choice-btn");
 let user0 = document.querySelector(`.player-user-0`)
 let user1 = document.querySelector(`.player-user-1`)
 
-let round = 5; 
+let round; 
 let currentRound = 0;
 // let winnersArray = [];
 
 let user0Wins = 0, user1Wins = 0, tie = 0;
+
+
+roundOptions.forEach(function(button) {
+    button.addEventListener('click', function() {
+        round = button.id;
+        roundCount.textContent = button.id
+        startPage.style.display = "none";
+    });
+});
+
 
 let scoreNumberEffect = (i) => {
     let div = document.createElement("div");
@@ -73,6 +91,7 @@ let gameEnds = (status) => {
         replayButton.classList.remove("display-visible")
         user0.querySelector("div > img").setAttribute("src", `assets/rock.png`)
         user1.querySelector("div > img").setAttribute("src", `assets/rock.png`)
+        roundCount.textContent = round;
 
     })
 }
@@ -82,8 +101,9 @@ buttons.forEach( button => {
     button.addEventListener("click", () => {
         step.play();
         // reseting the user sprite to rock, when the round starts
-        user0.querySelector("div > img").setAttribute("src", `assets/rock.png`)
-        user1.querySelector("div > img").setAttribute("src", `assets/rock.png`)
+        user0.querySelector("div > img").setAttribute("src", `assets/rock.png`);
+        user1.querySelector("div > img").setAttribute("src", `assets/rock.png`);
+        roundCount.textContent = parseInt(roundCount.textContent) - 1;
 
         choicesClickables.classList.toggle("pointer-events");
         // getting user0, user1 choices on button clicks 
@@ -169,3 +189,6 @@ buttons.forEach( button => {
     })
 })
 
+if (typeof screen.orientation == 'undefined') { 
+    document.querySelector("body").textContent = "This site looks best on pc"
+ }
