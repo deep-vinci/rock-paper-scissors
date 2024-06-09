@@ -18,8 +18,10 @@ body {
     src: url("assets/pricedown.otf") format("opentype");
 }
 html, body {
-    height: 100%;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .page {
@@ -46,13 +48,13 @@ html, body {
 }
 
 .rps-logo span:nth-child(1) {
-    color: #a17cb2;
+    color: #2e72a3;
 }
 .rps-logo span:nth-child(2) {
     color: #dc6759;
 }
 .rps-logo span:nth-child(3) {
-    color: #2e72a3;
+    color: #a17cb2;
 }
 
 .mode-div {
@@ -103,9 +105,13 @@ img {
     flex-direction: column;
     position: absolute;
     margin: 8px;
-    gap: 8px;
+    gap: 10px;
+    
 }
 
+.pointer-events {
+    pointer-events: none;
+}
 
 .coming-soon {
     position: absolute;
@@ -160,16 +166,31 @@ img {
     /* display: flex;
     justify-content: center;
     align-items: center; */
+    z-index: 999;
 }
 
-.status-message {
+.status-message > div {
     font-family: pricedown;
     /* border: 1px solid red; */
     /* text-align: center; */
     font-size: 5rem;
-    color: #eac46c;
+    
 }
-
+.lost {
+    color: #a63a41;
+    display: none;
+}
+.won {
+    color: #eac46c;
+    display: none;
+}
+.tie {
+    color: #eac46c;
+    display: none;
+}
+.display-visible {
+    display: block;
+}
 .game-board {
     display: flex;
     width: 100%;
@@ -185,3 +206,19 @@ img {
     position: relative;
 
 }
+
+.player-user-anim {
+    animation: player-animate 0.2s ease-in 0s infinite alternate; 
+
+}
+
+@keyframes player-animate {
+    0%   {
+        transform: rotate(20deg);
+    }
+    100% {
+        transform: rotate(-30deg);
+    }
+}
+
+  
