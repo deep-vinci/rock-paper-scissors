@@ -11,6 +11,13 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 body {
   font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
 }
 
 @font-face {
@@ -190,18 +197,45 @@ img {
 .lost {
     color: #a63a41;
     display: none;
+    text-shadow: 0px 0px 100px #14094b;
+
 }
 .won {
     color: #eac46c;
     display: none;
+    text-shadow: 0px 0px 100px #14094b;
 }
 .tie {
     color: #eac46c;
     display: none;
+    text-shadow: 0px 0px 100px #14094b;
+}
+.replay{
+    font-family: pricedown;
+    font-size: 2rem;   
+    position: absolute;
+    bottom: 0;
+    display: none;
+    animation: status-message 0.4s ease-out 0s 1 normal;   
+}
+.replay button {
+    background-color: #322b56;
+    border: 2px solid #433971;
+    padding: 6px 10px 10px 10px;
+    border-radius: 10px;
+    margin: 10px;
+    color: #40c67a;
+    box-shadow: 0 4px 4px 0px #191529;
+    transition: transform 0.5s ease; 
+}
+.replay button:active {
+    transform: scale(0.95);
 }
 .display-visible {
     display: block;
 }
+
+
 .game-board {
     display: flex;
     width: 100%;
@@ -227,9 +261,42 @@ img {
     0%   {
         transform: rotate(20deg);
     }
+    50% {
+        transform: rotate(0deg);
+    }
     100% {
         transform: rotate(-30deg);
     }
 }
 
-  
+button {
+    cursor: pointer;
+}
+
+.score-num {
+    top: 90px;
+    color: #40c67a;
+    position: absolute;
+    font-family: pricedown;
+    font-size: 1.5rem;
+    animation: up-disappear 1s ease-in 0s 1 forwards;
+}
+.score-0-side {
+    left: 80px;
+}
+
+.score-1-side {
+    right: 80px;
+}
+@keyframes up-disappear {
+    0% {
+        top: 90px;
+        opacity: 1;
+    }
+    100% {
+        top: 20px;
+        opacity: 0;
+    }
+}
+
+

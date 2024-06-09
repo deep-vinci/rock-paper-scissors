@@ -2,6 +2,16 @@
 let rockButton = document.querySelector(".rock");
 let paperButton = document.querySelector(".paper");
 let scissorsButton = document.querySelector(".scissors");
+let replayButton = document.querySelector(".replay");
+let gameBoard = document.querySelector(".game-board");
+var win = new Audio('assets/win.wav');
+var lose = new Audio('assets/lose.wav');
+var step = new Audio('assets/step.wav');
+
+// Set the volume for each audio element
+win.volume = 0.2;
+lose.volume = 0.2;
+step.volume = 0.2;
 
 let choicesClickables = document.querySelector(".choices-clickables");
 
@@ -16,7 +26,12 @@ let currentRound = 0;
 
 let user0Wins = 0, user1Wins = 0, tie = 0;
 
-
+let scoreNumberEffect = (i) => {
+    let div = document.createElement("div");
+    div.classList.add("score-num", `score-${i}-side`)
+    div.textContent = "+ 1"
+    gameBoard.appendChild(div)
+}
 // const modes = ["p2p", "p2c"];
 const deadlyCombo = {
     rock: "scissors",
@@ -33,8 +48,10 @@ let getWhoWon = (user0Choice, user1Choice) => {
     if (user0Choice == user1Choice) {
         return "tie";
     } else if (deadlyCombo[user0Choice] === user1Choice) {
+        scoreNumberEffect(0);
         return "user0";
     } else {
+        scoreNumberEffect(1);
         return "user1";
     }
     // dummy response
@@ -47,11 +64,23 @@ let gameEnds = (status) => {
     let statusMessage = document.querySelector(`.status-message .${status}`);
     choicesClickables.classList.toggle("pointer-events");
     statusMessage.classList.add("display-visible");
+    replayButton.classList.add("display-visible")
+    replayButton.addEventListener("click", () => {
+        currentRound = 0;
+        user0Wins = 0, user1Wins = 0, tie = 0;
+        choicesClickables.classList.remove("pointer-events");
+        statusMessage.classList.remove("display-visible");
+        replayButton.classList.remove("display-visible")
+        user0.querySelector("div > img").setAttribute("src", `assets/rock.png`)
+        user1.querySelector("div > img").setAttribute("src", `assets/rock.png`)
+
+    })
 }
 
 
 buttons.forEach( button => {
     button.addEventListener("click", () => {
+        step.play();
         // reseting the user sprite to rock, when the round starts
         user0.querySelector("div > img").setAttribute("src", `assets/rock.png`)
         user1.querySelector("div > img").setAttribute("src", `assets/rock.png`)
@@ -99,12 +128,15 @@ buttons.forEach( button => {
                 if (user1Wins > user0Wins) {
                     console.warn("user1 won")
                     gameEnds("won")
+                    win.play();
                 } else if (user1Wins < user0Wins) {
                     console.warn("user0 won")
                     gameEnds("lost")
+                    lose.play();
                 } else {
                     console.log(tie)
                     gameEnds("tie");
+                    lose.play()
                 }
             }
 
@@ -117,7 +149,7 @@ buttons.forEach( button => {
             // }
             
             console.table(user0Choice, user1Choice);
-        }, 200);
+        }, 800);
         
         // console.log(getUser0Choice());
 
@@ -136,3 +168,4 @@ buttons.forEach( button => {
         // - after the required round numbers, the winner is declared and status message is popped, You win!
     })
 })
+
