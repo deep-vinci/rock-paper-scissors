@@ -1,4 +1,3 @@
-// Listening for user input button clicks
 let rockButton = document.querySelector(".rock");
 let paperButton = document.querySelector(".paper");
 let scissorsButton = document.querySelector(".scissors");
@@ -30,7 +29,6 @@ let user1 = document.querySelector(`.player-user-1`)
 
 let round; 
 let currentRound = 0;
-// let winnersArray = [];
 
 let user0Wins = 0, user1Wins = 0, tie = 0;
 
@@ -71,10 +69,6 @@ let getWhoWon = (user0Choice, user1Choice) => {
     } else {
         scoreNumberEffect(1);
         return "user1";
-    }
-    // dummy response
-    return {
-        winner: user.user
     }
 }
 
@@ -159,14 +153,6 @@ buttons.forEach( button => {
                     lose.play()
                 }
             }
-
-            // console.log(winnersArray)
-            // currentRound++;
-            // if (currentRound >= round) {    
-            //     winnersArray.map( (e, i) => {
-                    
-            //     })
-            // }
             
             console.table(user0Choice, user1Choice);
         }, 800);
