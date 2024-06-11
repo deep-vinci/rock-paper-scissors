@@ -155,23 +155,7 @@ buttons.forEach( button => {
             }
             
             console.table(user0Choice, user1Choice);
-        }, 800);
-        
-        // console.log(getUser0Choice());
-
-        // mitigating the additional user complexity for now, because i may have to use 
-        // gameloop for that
-        // - on click event fires up, determines who is the clicker <user>, 
-        //   waits for the other user to click, then same
-
-        // ------
-
-        // - call the user-0 and ask for its choice
-        // - user-0 when choosen the choice, sends a event update, that is listened 
-        //   by a function getWhoWon() that determines the winner
-        // - getWhoWon sends back the data as object, { winner: <user>, choices: [rock, paper]}
-        // - this data is used to increment the counter for <user> wins
-        // - after the required round numbers, the winner is declared and status message is popped, You win!
+        }, 800);        
     })
 })
 
