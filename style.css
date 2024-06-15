@@ -309,7 +309,7 @@ button {
     text-align: center;
 }
 
-.start-page .round-options {
+.start-page .pround-otions {
     /* border: 2px solid red; */
     display: flex;
     flex-direction: row;
@@ -343,12 +343,22 @@ button {
 @media only screen and (max-width: 980px) {  
     .game-board {
         flex-direction: column;
+        height: 400px;    
     }
 
     .game {
         width: 80vw;
     }
+    .start-page .round-options {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 
+    .round-options button {
+        width: 70vw;
+    }
+    
     img  {
         width: 150px;
         height: 150px;    
