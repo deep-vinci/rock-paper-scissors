@@ -12,3 +12,6 @@ This is version 2 of the Rock paper scissor game, previous version can be found 
 
 ### Win page
 ![](assets/youwon.png)
+
+- Sprites [Jacqueline Ling](https://www.instagram.com/club_koi)
+- Sounds [freesounds.org](https://freesounds.org)
