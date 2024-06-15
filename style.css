@@ -32,8 +32,10 @@ html, body {
 }
 
 .page {
-    height: 100%;
-    width: 100%;      
+    height: 100vh;
+    width: 100vw;      
+    display: flex;
+    flex-direction: column;
     background-color: #201c32;
 }
 
@@ -338,8 +340,84 @@ button {
 }
 
 
-@media only screen and (max-width: 980px) {  
+/* @media only screen and (max-width: 980px) {  
     html, body {
       display: none;
      }
+    } */
+
+.credits {
+    margin-bottom: 0;
+    text-align: center;
+    color: white;
+    margin: 15px;
+    align-self: center;
+    position: absolute;
+    bottom: 10px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.roll-credits {
+    display: none;
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    text-align: center;
+    /* animation: status-message 1s ease-out 0s 1 normal;    */
+    background: radial-gradient( #322b5675, rgb(13, 3, 36) 99%);
+    text-transform: uppercase;
+}
+
+.roll-credits-toggle-flex {
+    display: flex;
+}
+/* .credits-body:hover {
+    animation-play-state: paused;
+} */
+.credits-body {
+    font-size: 1em;
+    position: fixed;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    
+}
+
+.credits-body a {
+    color: white;
+    text-transform: lowercase;
+}
+
+.left-credits {
+    text-align: right;
+}
+
+.right-credits {
+    text-align: left;
+}
+
+.left-credits > div, .right-credits > div {
+    color: white;
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+.credits-body-animate {
+    animation: roll-credits 5s linear 0s 1 forwards;   
+}
+
+
+@keyframes roll-credits {
+
+    0% { bottom: calc(-30vh); visibility: visible; 
+
     }
+    100% { 
+        bottom: calc(35vh); visibility: visible;}
+}

@@ -4,6 +4,9 @@ let scissorsButton = document.querySelector(".scissors");
 let replayButton = document.querySelector(".replay");
 let gameBoard = document.querySelector(".game-board");
 let roundCount = document.querySelector(".round-count");
+let credit = document.querySelector(".credits");
+let rollCredits = document.querySelector(".roll-credits");
+let creditsBody = document.querySelector(".credits-body");
 
 let roundOptions = document.querySelectorAll(".start-page > .round-options button");
 let startPage = document.querySelector(".start-page");
@@ -41,6 +44,13 @@ roundOptions.forEach(function(button) {
     });
 });
 
+credit.addEventListener("click", () => {
+    // rollCredits.classList.toggle("display-visible");
+    rollCredits.classList.toggle("credit-body-animate");
+    // rollCredits.style.display = "block";
+    rollCredits.classList.toggle("roll-credits-toggle-flex");
+    creditsBody.classList.add("credits-body-animate")
+})
 
 let scoreNumberEffect = (i) => {
     let div = document.createElement("div");
