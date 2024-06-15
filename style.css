@@ -341,9 +341,35 @@ button {
 
 
 @media only screen and (max-width: 980px) {  
-    html, body {
+    .game-board {
+        flex-direction: column;
+    }
+
+    .game {
+        width: 80vw;
+    }
+
+    img  {
+        width: 150px;
+        height: 150px;    
+    }
+
+    .status-message > div {
+        font-size: 3rem;
+    }
+    .nav > .rps-logo {
+        width: 80vw;
+        /* outline: 1px solid red; */
+        word-wrap: break-word;
+        padding-left: 20px;
+    }
+
+    .nav {
+    
+    }
+    /* html, body {
       display: none;
-     }
+     } */
     }
 
 .credits {
