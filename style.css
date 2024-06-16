@@ -309,7 +309,7 @@ button {
     text-align: center;
 }
 
-.start-page .pround-otions {
+.start-page .round-options {
     /* border: 2px solid red; */
     display: flex;
     flex-direction: row;
@@ -361,6 +361,11 @@ button {
     .round-options button {
         width: 70vw;
     }
+
+    .start-page h2 {
+        margin-top: auto;
+    }
+    
     
     img  {
         width: 150px;
