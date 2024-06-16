@@ -161,7 +161,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: -120px auto;
+    margin: auto;
 }
 
 .status {
@@ -349,6 +349,8 @@ button {
     .game {
         /* height: 100px; */
         width: 80vw;
+        margin: -120px auto;
+
     }
     .start-page .round-options {
         display: flex;
