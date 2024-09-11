@@ -52,6 +52,7 @@ credit.addEventListener("click", () => {
     creditsBody.classList.add("credits-body-animate")
 })
 
+
 let scoreNumberEffect = (i) => {
     let div = document.createElement("div");
     div.classList.add("score-num", `score-${i}-side`)

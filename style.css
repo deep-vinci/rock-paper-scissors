@@ -385,6 +385,9 @@ button {
     .nav {
     
     }
+    .credits {
+        bottom: 0px;
+    }
     /* html, body {
       display: none;
      } */
@@ -459,7 +462,7 @@ button {
 }
 
 .credits-body-animate {
-    animation: roll-credits 5s linear 0s 1 forwards;   
+    animation: roll-credits 3s linear 0s 1 forwards;   
 }
 
 
