@@ -1,5 +1,8 @@
 # rock-paper-scissors
 
+| [Start a new game](https://deep-vinci.github.io/rock-paper-scissors/) |
+| --------------------------------------- |
+
 This is version 2 of the Rock paper scissor game, previous version can be found on [rps-ui branch](https://github.com/deep-vinci/rock-paper-scissors/tree/rps-ui) 
 
 ### Gallery 
